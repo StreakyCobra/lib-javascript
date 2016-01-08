@@ -15,5 +15,14 @@ module.exports.loginParams = {
   origin: utility.urls.domains.client.staging
 };
 
+module.exports.pwLoginParams = {
+  username: 'passwordTester',
+  password1: 'myFirstPassword',
+  password2: 'mySecondPassword',
+  appId: 'pryv-test-app',
+  domain: utility.urls.domains.server.staging,
+  origin: utility.urls.domains.client.staging
+};
+
 module.exports.testStreamId = 'diary';
 
