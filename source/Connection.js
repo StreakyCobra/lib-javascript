@@ -429,8 +429,7 @@ Connection.login = function (params, callback) {
 
   if (!utility.isBrowser()) {
     var origin = 'https://sw.';
-    origin = params.origin ? origin + params.origin :
-    origin + utility.urls.domains.client.production;
+    origin = params.origin ? origin + params.origin : origin + "pryv.me"
     _.extend(headers, {Origin: origin});
   }
 
