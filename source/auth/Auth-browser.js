@@ -399,7 +399,7 @@ Auth.prototype.login = function (settings) {
   });
 
   Connection.login(settings, function(err, conn, res) {
-    if((err || !res.token) && typeof(this.settings.callbacks.error) === 'function') {
+    if((err || !conn) && typeof(this.settings.callbacks.error) === 'function') {
       return this.settings.callbacks.error(err || res);
     }
 
