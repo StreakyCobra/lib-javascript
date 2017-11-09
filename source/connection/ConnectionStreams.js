@@ -74,7 +74,12 @@ ConnectionStreams.prototype.create = function (streamData, callback) {
   return this._createWithData(streamData, callback);
 };
 
-
+/**
+ * Updates the stream or an array of streams
+ *
+ * @param {Stream | Array.Streams} streamData
+ * @param callback
+ */
 ConnectionStreams.prototype.update = function (streamData, callback) {
   if (typeof(callback) !== 'function') {
     throw new Error(CC.Errors.CALLBACK_IS_NOT_A_FUNCTION);
@@ -84,12 +89,13 @@ ConnectionStreams.prototype.update = function (streamData, callback) {
     streamData = [ streamData ];
   }
 
-  _.each(streamData, function (e) {
-    var s = _.pick(e, 'id', 'name', 'parentId', 'singleActivity',
+  _.each(streamData, function (stream) {
+    var payload = _.pick(stream, 'name', 'parentId', 'singleActivity',
       'clientData', 'trashed');
     this.connection.request({
       method: 'PUT',
-      path: '/streams/' + s.id,
+      path: '/streams/' + stream.id,
+      jsonData: payload,
       callback: function (error, result) {
         if (!error && result && result.stream) {
 
@@ -117,8 +123,7 @@ ConnectionStreams.prototype.update = function (streamData, callback) {
         if (error) {
           callback(error, null);
         }
-      }.bind(this),
-      jsonData: s
+      }.bind(this)
     });
   }.bind(this));
 };
