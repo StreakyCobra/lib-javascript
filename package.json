@@ -73,5 +73,8 @@
     "nock": "latest",
     "replay": "latest",
     "should": "latest"
+  },
+  "browser": {
+    "./source/main.js": "./source/client.js"
   }
 }

@@ -75,7 +75,3 @@ utility.ioConnect = function (settings) {
 };
 
 utility.urls = require('./urls');
-
-// platform-specific members
-_.extend(utility, utility.isBrowser() ?
-    require('./utility-browser.js') : require('./utility-node.js'));

@@ -1,10 +1,9 @@
 var _ = require('underscore'),
 utility = require('./utility/utility.js'),
-utilityBrowser = require('./utility/utility-node.js');
+utilityBrowser = require('./utility/utility-browser.js');
 
 module.exports = {
-  // TODO: fix singleton (see with me [sgoumaz] if needed)
-  Auth: require('./auth/Auth-node.js'),
+  Auth: require('./auth/Auth-browser.js'),
   Connection: require('./Connection.js'),
   Event: require('./Event.js'),
   Stream: require('./Stream.js'),
