@@ -29,7 +29,6 @@ module.exports = function (grunt) {
         dest: currentDistPath + 'pryv.js',
         options: {
           alias: ['./source/main.js:pryv'],
-          ignore: [ './source/system/*-node.js', './source/utility/*-node.js' ],
           browserifyOptions: {
             standalone: 'pryv'
           }
