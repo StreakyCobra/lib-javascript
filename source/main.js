@@ -1,6 +1,6 @@
 var _ = require('underscore'),
 utility = require('./utility/utility.js'),
-utilityBrowser = require('./utility/utility-node.js');
+utilityNode = require('./utility/utility-node.js');
 
 module.exports = {
   // TODO: fix singleton (see with me [sgoumaz] if needed)
@@ -11,7 +11,7 @@ module.exports = {
   Filter: require('./Filter.js'),
 
   eventTypes: require('./eventTypes.js'),
-  utility: _.extend(utility, utilityBrowser),
+  utility: _.extend(utility, utilityNode),
   MESSAGES: {
     MONITOR: require('./Monitor.js').Messages
   }
