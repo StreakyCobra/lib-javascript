@@ -1,4 +1,5 @@
-var utility = require('./utility/utility.js'),
+var utility = require('main').utility,
+    helpers = require('./utility/helpers.js'),
     ConnectionEvents = require('./connection/ConnectionEvents.js'),
     ConnectionStreams = require('./connection/ConnectionStreams.js'),
     ConnectionProfile = require('./connection/ConnectionProfile.js'),
@@ -44,7 +45,7 @@ function Connection() {
     this.username = settings.username;
     this.auth = settings.auth;
     if (settings.url) {
-      var urlInfo = utility.urls.parseServerURL(settings.url);
+      var urlInfo = helpers.urls.parseServerURL(settings.url);
       this.username = urlInfo.username;
       settings.hostname = urlInfo.hostname;
       settings.domain = urlInfo.domain;
@@ -63,7 +64,7 @@ function Connection() {
   }, settings);
 
   this.settings.domain = settings.domain ?
-      settings.domain : utility.urls.defaultDomain;
+      settings.domain : helpers.urls.defaultDomain;
 
   this.serverInfos = {
     // nowLocalTime - nowServerTime
@@ -435,14 +436,14 @@ Connection.login = function (params, callback) {
     'Content-Type': 'application/json'
   };
 
-  if (!utility.isBrowser()) {
+  if (!helpers.isBrowser()) {
     var origin = 'https://sw.';
     origin = params.origin ? origin + params.origin :
-    origin + utility.urls.domains.client.production;
+    origin + helpers.urls.domains.client.production;
     _.extend(headers, {Origin: origin});
   }
 
-  var domain = params.domain || utility.urls.domains.client.production;
+  var domain = params.domain || helpers.urls.domains.client.production;
 
   var pack = {
     method: 'POST',

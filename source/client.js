@@ -1,6 +1,4 @@
-var _ = require('underscore'),
-utility = require('./utility/utility.js'),
-utilityBrowser = require('./utility/utility-browser.js');
+var  _ = require('underscore');
 
 module.exports = {
   Auth: require('./auth/Auth-browser.js'),
@@ -10,7 +8,7 @@ module.exports = {
   Filter: require('./Filter.js'),
 
   eventTypes: require('./eventTypes.js'),
-  utility: _.extend(utility, utilityBrowser),
+  utility: _.extend(require('./utility/utility-browser.js'), require('./utility/helpers.js')),
   MESSAGES: {
     MONITOR: require('./Monitor.js').Messages
   }

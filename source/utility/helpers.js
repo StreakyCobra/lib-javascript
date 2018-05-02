@@ -1,5 +1,4 @@
-var socketIO = require('socket.io-client'),
-    _ = require('underscore');
+var _ = require('underscore');
 
 var utility = module.exports = {};
 
@@ -9,8 +8,6 @@ var utility = module.exports = {};
 utility.isBrowser = function () {
   return typeof(window) !== 'undefined';
 };
-
-utility.SignalEmitter = require('./SignalEmitter.js');
 
 /**
  * Merges two object (key/value map) and remove "null" properties

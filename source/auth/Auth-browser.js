@@ -1,6 +1,7 @@
 /* global confirm, document, navigator, location, window */
 
-var utility = require('../utility/utility.js'),
+var utility = require('../utility/utility-browser.js'),
+  helpers = require('../utility/helpers.js'),
   Connection = require('../Connection.js'),
   _ = require('underscore');
 
@@ -392,7 +393,7 @@ Auth.prototype.internalError = function (message, jsonData) {
 Auth.prototype.login = function (settings) {
   this._checkCookies();
 
-  var defaultDomain = utility.urls.defaultDomain;
+  var defaultDomain = helpers.urls.defaultDomain;
   this.settings = settings = _.defaults(settings, {
     ssl: true,
     domain: defaultDomain
@@ -456,7 +457,7 @@ Auth.prototype.trustedLogout = function () {
  * @param settings: request settings
  */
 Auth.prototype.whoAmI = function (settings) {
-  var defaultDomain = utility.urls.defaultDomain;
+  var defaultDomain = helpers.urls.defaultDomain;
   this.settings = settings = _.defaults(settings, {
     ssl: true,
     domain: defaultDomain
@@ -511,7 +512,7 @@ Auth.prototype.whoAmI = function (settings) {
  * @returns {*}: a successful connection or false
  */
 Auth.prototype.loginWithCookie = function (settings) {
-  var defaultDomain = utility.urls.defaultDomain;
+  var defaultDomain = helpers.urls.defaultDomain;
   this.settings = settings = _.defaults(settings, {
     ssl: true,
     domain: defaultDomain

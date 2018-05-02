@@ -1,4 +1,4 @@
-var utility = require('../utility/utility.js'),
+var helpers = require('../utility/helpers.js'),
   _ = require('underscore'),
   Filter = require('../Filter'),
   Event = require('../Event'),
@@ -397,7 +397,7 @@ ConnectionEvents.prototype.getAttachment =
     if (typeof(callback) !== 'function') {
       throw new Error(CC.Errors.CALLBACK_IS_NOT_A_FUNCTION);
     }
-    if (utility.isBrowser()) {
+    if (helpers.isBrowser()) {
       return callback(new Error('Function not implemented for browser, only available in NodeJS.'));
     }
     this.connection.request({
@@ -514,7 +514,7 @@ ConnectionEvents.prototype._get = function (filter, callback) {
   }
   this.connection.request({
     method: 'GET',
-    path: '/events?' + utility.getQueryParametersString(tParams),
+    path: '/events?' + helpers.getQueryParametersString(tParams),
     callback: callback
   });
 };
