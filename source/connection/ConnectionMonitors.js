@@ -1,5 +1,5 @@
 var _ = require('underscore'),
-    helpers = require('../utility/helpers'),
+    utility = require('../utility/utility'),
     Monitor = require('../Monitor');
 
 /**
@@ -63,7 +63,7 @@ ConnectionMonitors.prototype._startMonitoring = function (callback) {
     auth : this.connection.auth
   };
 
-  this.ioSocket = helpers.ioConnect(settings);
+  this.ioSocket = utility.ioConnect(settings);
 
   this.ioSocket.on('connect', function () {
     _.each(this._monitors, function (monitor) { monitor._onIoConnect(); });

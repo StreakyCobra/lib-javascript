@@ -209,7 +209,7 @@ ConnectionStreams.prototype.getById = function (streamId) {
 ConnectionStreams.prototype._getData = function (opts, callback) {
   this.connection.request({
     method: 'GET',
-    path: opts ? '/streams?' + helpers.getQueryParametersString(opts) : '/streams',
+    path: opts ? '/streams?' + utility.getQueryParametersString(opts) : '/streams',
     callback: callback
   });
 };

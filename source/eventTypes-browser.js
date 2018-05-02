@@ -1,4 +1,4 @@
-var utility = require('./utility/utility.js'),
+var utility = require('./utility/utility-browser.js'),
     _ = require('underscore'),
     CC = require('./connection/ConnectionConstants.js');
 

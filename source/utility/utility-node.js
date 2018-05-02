@@ -3,7 +3,7 @@
  */
 var FormData = require('form-data');
 
-var utility = module.exports = {};
+var utility = module.exports = require('./utility.js');
 
 utility.request = require('./request-node');
 

@@ -3,7 +3,7 @@
 /**
  * Browser-only utils
  */
-var utility = module.exports = {};
+var utility = module.exports = require('./utility.js');
 
 utility.getHostFromUrl = function (url) {
   var location;
