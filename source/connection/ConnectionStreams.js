@@ -1,6 +1,7 @@
 var _ = require('underscore'),
   Stream = require('../Stream.js'),
-  CC = require('./ConnectionConstants.js');
+  CC = require('./ConnectionConstants.js'),
+  utility = require('../utility/utility.js');
 
 /**
  * @class ConnectionStreams
