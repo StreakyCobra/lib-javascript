@@ -1,4 +1,5 @@
-var _ = require('underscore');
+var socketIO = require('socket.io-client'), 
+  _ = require('underscore');
 
 var utility = module.exports = {};
 
@@ -68,7 +69,7 @@ utility.ioConnect = function (settings) {
   var url = httpMode + '://' + settings.host + ':' + settings.port + '' +
       settings.path + '?auth=' + settings.auth + '&resource=' + settings.namespace;
 
-  return socketIO.connect(url, {'force new connection': true});
+  return socketIO(url, {forceNew: true});
 };
 
 utility.urls = require('./urls');
