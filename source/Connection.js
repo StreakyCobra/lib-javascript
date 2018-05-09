@@ -9,6 +9,9 @@ var utility = require('./utility/utility.js'),
     CC = require('./connection/ConnectionConstants.js'),
     Datastore = require('./Datastore.js'),
     _ = require('underscore');
+    
+var _request = process.browser ? 
+    require('./utility/request-browser') : require('./utility/request-node');
 
 /**
  * @class Connection
@@ -289,8 +292,8 @@ Connection.prototype.request = function (params) {
     headers['X-Requested-With'] = 'XMLHttpRequest';
     withoutCredentials = true;
   }
-
-  var request = this._request({
+  
+  var request = _request({
     method : params.method,
     host : getHostname(this),
     port : this.settings.port,
@@ -474,7 +477,7 @@ Connection.login = function (params, callback) {
     }
   };
 
-  this.request(pack);
+  _request(pack);
 };
 
 

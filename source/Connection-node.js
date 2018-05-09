@@ -1,4 +1,4 @@
-var utility = require('./utility/utility-browser');
+var utility = require('./utility/utility-node');
 
 var Connection = module.exports = require('./Connection.js');
 
