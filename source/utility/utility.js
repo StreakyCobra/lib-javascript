@@ -1,7 +1,8 @@
 var socketIO = require('socket.io-client'), 
   _ = require('underscore');
 
-var utility = module.exports = {};
+var utility = module.exports = process.browser ?
+  require('./utility-browser.js') : require('./utility-node.js');
 
 /**
  * @returns {Boolean} `true` if we're in a web browser environment
